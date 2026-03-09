@@ -11,11 +11,11 @@ Spring Boot, JPA, Gradle, Swagger API를 사용하여 개발자 인력 정보를
 * Swagger (Springdoc OpenAPI)
 
 # 개발 환경
-Java 17
-Spring Boot 3.x
-Gradle
-VS Code
-Git Bash
-GitHub
+Java 17  
+Spring Boot 3.x  
+Gradle  
+VS Code  
+Git Bash  
+GitHub  
 
 ...
