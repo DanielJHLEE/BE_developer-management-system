@@ -83,17 +83,17 @@ server:
 # 4. 데이터베이스 자동 생성 방식
 프로젝트 실행 시 다음과 같은 순서로 동작합니다.
 
-Spring Boot 실행
-↓
-MySQL 접속
-↓
-dev_management 데이터베이스 존재 여부 확인
-↓
-없으면 자동 생성
-↓
-JPA Entity 기준 테이블 생성
+* Spring Boot 실행
+  ↓
+* MySQL 접속
+  ↓
+* dev_management 데이터베이스 존재 여부 확인
+  ↓
+* 없으면 자동 생성
+  ↓
+* JPA Entity 기준 테이블 생성
 
-구조 예시
+# 구조 예시
 
 MySQL
  └ dev_management
