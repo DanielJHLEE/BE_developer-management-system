@@ -12,7 +12,7 @@ Spring Boot, JPA, Gradle, Swagger UI를 사용하여 개발자 인력 정보를 
 * Swagger (Springdoc OpenAPI)
 
 # GRADLE 명령어 빌드/실행
-./gradlew clean build 빌드
-./gradlew bootRun
+* ./gradlew clean build 빌드  
+* ./gradlew bootRun
 
 ...
