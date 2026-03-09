@@ -15,4 +15,6 @@ Spring Boot, JPA, Gradle, Swagger UI를 사용하여 개발자 인력 정보를 
 * ./gradlew clean build 빌드  
 * ./gradlew bootRun 실행
 
+* http://localhost:8080/developers/test
+
 ...
