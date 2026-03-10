@@ -24,11 +24,10 @@ public class UserMstController {
 
     /**
      * 개발자 목록 조회
-     * GET /userMst/list
+     * GET /user-mst/list
      */
     @GetMapping("/list")
     public List<UserMstDto.UserMstResponseDto> getUserMstList() {
         return userMstService.getUserMstList();
     }
-
 }

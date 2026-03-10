@@ -47,7 +47,7 @@ public class UserMstDto {
                     .userPhoneNo(user.getUserPhoneNo())
                     .userGrade(user.getUserGrade())
                     .userAddr(user.getUserAddr())
-                    .userAddr(user.getUserGender())
+                    .userGender(user.getUserGender())
                     .useYn(user.getUseYn())
                     .regDt(user.getRegDt())
                     .updDt(user.getUpdDt())
