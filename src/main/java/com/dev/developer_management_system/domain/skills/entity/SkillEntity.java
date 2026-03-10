@@ -1,6 +1,8 @@
 package com.dev.developer_management_system.domain.skills.entity;
 
 import com.dev.developer_management_system.domain.user_mst.entity.UserMstEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +26,7 @@ public class SkillEntity {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_no")
+    @JsonIgnore
     private UserMstEntity user;
 
     @Column(name = "language")

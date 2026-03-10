@@ -2,6 +2,8 @@ package com.dev.developer_management_system.domain.project_history.entity;
 
 import com.dev.developer_management_system.domain.projects.entity.ProjectEntity;
 import com.dev.developer_management_system.domain.user_mst.entity.UserMstEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +34,7 @@ public class ProjectHistoryEntity {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_no")
+    @JsonIgnore
     private UserMstEntity user;
 
     @Column(name = "input_start_date")
