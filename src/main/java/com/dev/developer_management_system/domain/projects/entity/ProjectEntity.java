@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.dev.developer_management_system.domain.project_history.entity.ProjectHistoryEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +21,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "TB_PRJ_MST")
 public class ProjectEntity {
@@ -56,6 +59,7 @@ public class ProjectEntity {
      * 프로젝트 투입 이력
      */
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<ProjectHistoryEntity> projectHistories;
 
     @Column(name = "reg_dt")

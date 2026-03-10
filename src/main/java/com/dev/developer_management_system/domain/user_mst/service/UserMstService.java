@@ -37,9 +37,9 @@ public class UserMstService {
     /**
      * 개발자 상세 조회
      */
-    public Optional<UserMstDto.UserMstResponseDto> getUserMstDetail(Long userNo) {
+    public Optional<UserMstDto.UserMstDetailResponseDto> getUserMstDetail(Long userNo) {
 
         return userMstRepository.findById(userNo)
-                .map(UserMstDto.UserMstResponseDto::fromEntity);
+                .map(UserMstDto.UserMstDetailResponseDto::fromEntity);
     }
 }

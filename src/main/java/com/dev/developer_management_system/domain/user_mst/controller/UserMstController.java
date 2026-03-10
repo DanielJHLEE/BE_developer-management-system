@@ -53,7 +53,7 @@ public class UserMstController {
         summary = "사용자(개발자 인력) 상세 조회",
         description = SwaggerTags.USER_GET_DETAIL_DESC
     )
-    public ResponseEntity<ApiResponseDto<UserMstDto.UserMstResponseDto>> getUserMstDetail(@PathVariable Long userNo) {
+    public ResponseEntity<ApiResponseDto<UserMstDto.UserMstDetailResponseDto>> getUserMstDetail(@PathVariable Long userNo) {
 
         return userMstService.getUserMstDetail(userNo)
             .map(user -> ResponseEntity.ok(

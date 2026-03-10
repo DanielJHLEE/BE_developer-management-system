@@ -18,8 +18,7 @@ public final class SwaggerTags {
     public static final String USER_DESC =
             "<b>개발자 인력 관리 API</b><br>" +
             "개발자 기본 정보 조회 기능을 제공합니다.<br>" +
-            "개발자 목록 조회 및 개발자 번호(user_no) 기준 상세 조회 기능을 포함합니다.<br>" +
-            "더미 데이터: <b>5개</b>";
+            "개발자 목록 조회 및 개발자 번호(user_no) 기준 상세 조회 기능을 포함합니다.<br>";
 
     public static final String USER_GET_ALL_DESC = """
         👨‍💻 <b>개발자 인력 목록 조회</b><br>
