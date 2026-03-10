@@ -25,7 +25,7 @@ public class ApiResponseDto<T> {
     public static <T> ApiResponseDto<T> success(T data) {
         return ApiResponseDto.<T>builder()
                 .status(HttpStatus.OK.value())
-                .message("정상적으로 조회되었습니다.")
+                .message(null)
                 .data(data)
                 .build();
     }

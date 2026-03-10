@@ -2,6 +2,8 @@ package com.dev.developer_management_system.domain.user_mst.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +40,9 @@ public class UserMstController {
         description = SwaggerTags.USER_GET_ALL_DESC
     )
     public ApiResponseDto<List<UserMstDto.UserMstResponseDto>> getUserMstList() {
-        return userMstService.getUserMstList();
+
+        List<UserMstDto.UserMstResponseDto> users = userMstService.getUserMstList();
+        return ApiResponseDto.success(HttpStatus.OK.getReasonPhrase(), users);
     }
 
     /**
@@ -49,8 +53,14 @@ public class UserMstController {
         summary = "사용자(개발자 인력) 상세 조회",
         description = SwaggerTags.USER_GET_DETAIL_DESC
     )
-    public ApiResponseDto<UserMstDto.UserMstResponseDto> getUserMstDetail(@PathVariable Long userNo) {
-        return userMstService.getUserMstDetail(userNo);
+    public ResponseEntity<ApiResponseDto<UserMstDto.UserMstResponseDto>> getUserMstDetail(@PathVariable Long userNo) {
+
+        return userMstService.getUserMstDetail(userNo)
+            .map(user -> ResponseEntity.ok(
+                    ApiResponseDto.success(HttpStatus.OK.getReasonPhrase(), user)
+            ))
+            .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(ApiResponseDto.fail(HttpStatus.NOT_FOUND, HttpStatus.NOT_FOUND.getReasonPhrase())));
     }
 
 }
