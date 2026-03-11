@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dev.developer_management_system.domain.user_mst.dto.UserMstDto;
 import com.dev.developer_management_system.domain.user_mst.entity.UserMstEntity;
@@ -42,4 +43,28 @@ public class UserMstService {
         return userMstRepository.findById(userNo)
                 .map(UserMstDto.UserMstDetailResponseDto::fromEntity);
     }
+
+    /**
+     * 개발자 삭제
+     */
+   @Transactional
+    public boolean deleteUserMst(Long userNo) {
+
+        Optional<UserMstEntity> userOpt = userMstRepository.findById(userNo);
+
+        if (userOpt.isEmpty()) {
+            return false;
+        }
+
+        UserMstEntity user = userOpt.get();
+
+        user.getSkills().size();
+        user.getProjectHistories().size();
+
+        userMstRepository.delete(user);
+
+        return true;
+    }
+
+    
 }

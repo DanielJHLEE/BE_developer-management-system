@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,4 +64,28 @@ public class UserMstController {
                     .body(ApiResponseDto.fail(HttpStatus.NOT_FOUND, HttpStatus.NOT_FOUND.getReasonPhrase())));
     }
 
+    /**
+     * 개발자 삭제
+     * DELETE /user-mst/{userNo}
+     */
+    @DeleteMapping("/{userNo}")
+    @Operation(
+        summary = "사용자(개발자 인력) 삭제",
+        description = SwaggerTags.USER_DELETE_DESC
+    )
+    public ResponseEntity<ApiResponseDto<Void>> deleteUserMst(@PathVariable Long userNo) {
+
+        boolean deleted = userMstService.deleteUserMst(userNo);
+
+        if (!deleted) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(ApiResponseDto.fail(HttpStatus.NOT_FOUND, HttpStatus.NOT_FOUND.getReasonPhrase()));
+        } else {
+            return ResponseEntity.ok(
+                    ApiResponseDto.success(HttpStatus.OK.getReasonPhrase(), null)
+            );
+        }
+    }
+
+        
 }

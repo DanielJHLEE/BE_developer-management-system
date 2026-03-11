@@ -30,6 +30,7 @@ public class UserMstDto {
         private Long userNo;
         private String userNm;
         private Integer userAge;
+        private Integer empNo;
         private String userPhoneNo;
         private String userGrade;
         private String userAddr;
@@ -37,6 +38,7 @@ public class UserMstDto {
         private String userRank;
         private String workerRole;
         private String useYn;
+        private LocalDateTime joinDt;
         private LocalDateTime regDt;
         private LocalDateTime updDt;
 
@@ -48,6 +50,7 @@ public class UserMstDto {
                     .userNo(user.getUserNo())
                     .userNm(user.getUserNm())
                     .userAge(user.getUserAge())
+                    .empNo(user.getEmpNo())
                     .userPhoneNo(user.getUserPhoneNo())
                     .userGrade(user.getUserGrade())
                     .userAddr(user.getUserAddr())
@@ -55,6 +58,7 @@ public class UserMstDto {
                     .userRank(user.getUserRank())
                     .workerRole(user.getWorkerRole())
                     .useYn(user.getUseYn())
+                    .joinDt(user.getJoinDt())
                     .regDt(user.getRegDt())
                     .updDt(user.getUpdDt())
                     .build();

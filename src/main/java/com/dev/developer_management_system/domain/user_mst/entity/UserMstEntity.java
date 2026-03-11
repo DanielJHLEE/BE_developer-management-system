@@ -6,6 +6,7 @@ import java.util.List;
 import com.dev.developer_management_system.domain.project_history.entity.ProjectHistoryEntity;
 import com.dev.developer_management_system.domain.skills.entity.SkillEntity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -33,6 +34,9 @@ public class UserMstEntity {
 
     @Column(name = "user_age")
     private Integer userAge;
+
+    @Column(name = "emp_no")
+    private Integer empNo;
 
     @Column(name = "user_phone_no")
     private String userPhoneNo;
@@ -67,7 +71,8 @@ public class UserMstEntity {
      * mappedBy = "user"
      * → SkillEntity의 user 필드가 연관관계의 주인
      */
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+           cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SkillEntity> skills;
 
     /**
@@ -79,8 +84,12 @@ public class UserMstEntity {
      * 개발자 1명은 여러 프로젝트에 투입될 수 있으므로
      * TB_INPUT_HIST.user_no 와 매핑되는 관계
      */
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+           cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProjectHistoryEntity> projectHistories;
+
+    @Column(name = "join_dt")
+    private LocalDateTime joinDt;
 
     @Column(name = "reg_dt")
     private LocalDateTime regDt;

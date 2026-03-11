@@ -33,7 +33,13 @@ public final class SwaggerTags {
         존재하지 않는 개발자 번호일 경우 <code>404 Not Found</code> 또는 예외가 발생합니다.<br>
         반환 형식: <code>UserMstResponseDto</code>
         """;
-
+    
+    public static final String  USER_DELETE_DESC = """
+        ❌ <b>개발자 인력 삭제</b><br>
+        개발자 번호(<code>user_no</code>)를 기준으로 개발자 정보를 삭제합니다.<br>
+        존재하지 않는 개발자 번호일 경우 <code>404 Not Found</code> 또는 예외가 발생합니다.<br>
+        성공 시 <code>204 No Content</code> 응답을 반환합니다.
+        """;
 
     /* ==========================================================
      * 📦 투입 이력(TB_INPUT_HIST) API
